@@ -7,17 +7,25 @@
     flex: auto;
     flex-flow: wrap;
     display: flex;
-    justify-content: space-evenly;
-
 }
 
 .width100 {
     flex-basis: 100%;
-    margin-bottom: -50px;
+    font-size: 40px;
+    margin-left: 10px;
 }
 
 .width50 {
     flex-basis: 50%;
+    font-size: 25px;
+
+}
+
+.temp {
+    margin-left: 15px;
+    flex-basis: 100%;
+    font-size: 30px;
+    justify-content: center;
 }
 
 .margin_auto {

@@ -87,7 +87,8 @@ export default async function getWeather(location) {
             speed: Math.round((v.speed * 2.237)),
             mainWeather: v.main,
             description: v.description,
-            url: v.url
+            url: v.url,
+            humidity: v.humidity
         }))
     )
 }
