@@ -10,6 +10,7 @@ export default async function getWeather(location) {
     const response = await axios.get(weatherURL + "&lat=" + lat + "&lon=" + lon);
     const weather = response.data.weather
     const name = response.data.name
+    console.log(response.data)
 
 
 
@@ -72,7 +73,7 @@ export default async function getWeather(location) {
     }
 
     const all = [Object.assign(main, data, wind, weathers, description, pic)]
-    console.log(pic)
+
 
 
 
