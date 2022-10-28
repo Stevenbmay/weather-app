@@ -24,45 +24,45 @@ export default async function getWeather(location) {
 
     let pic
 
-    if (weathers.main == "Clouds") {
-        if (description.description == "few clouds") {
+    if (weathers.main === "Clouds") {
+        if (description.description === "few clouds") {
             pic = {
                 url: "http://openweathermap.org/img/wn/02d@2x.png"
             }
         }
-        if (description.description == "scattered clouds") {
+        if (description.description === "scattered clouds") {
             pic = {
                 url: "http://openweathermap.org/img/wn/03d@2x.png"
             }
         }
-        if (description.description == "overcast clouds") {
+        if (description.description === "overcast clouds") {
             pic = {
                 url: "http://openweathermap.org/img/wn/04d@2x.png"
             }
         }
-        if (description.description == "overcast clouds") {
+        if (description.description === "overcast clouds") {
             pic = {
                 url: "http://openweathermap.org/img/wn/04d@2x.png"
             }
         }
-    } else if (weathers.main == "Thunderstorm") {
+    } else if (weathers.main === "Thunderstorm") {
         pic = {
             url: "http://openweathermap.org/img/wn/11d@2x.png"
         }
-    } else if (weathers.main == "Drizzle") {
+    } else if (weathers.main === "Drizzle") {
         pic = {
             url: "http://openweathermap.org/img/wn/09d@2x.png"
         }
-    } else if (weathers.main == "Rain") {
+    } else if (weathers.main === "Rain") {
         pic = {
             url: "http://openweathermap.org/img/wn/10d@2x.png"
         }
     }
-    else if (weathers.main == "Snow") {
+    else if (weathers.main === "Snow") {
         pic = {
             url: "http://openweathermap.org/img/wn/13d@2x.png"
         }
-    } else if (weathers.main == "Mist" || weathers.main == "Smoke" || weathers.main == "Haze" || weathers.main == "Dust" || weathers.main == "Fog" || weathers.main == "Sand" || weathers.main == "Ash" || weathers.main == "Squall" || weathers.main == "Tornado") {
+    } else if (weathers.main === "Mist" || weathers.main === "Smoke" || weathers.main === "Haze" || weathers.main === "Dust" || weathers.main === "Fog" || weathers.main === "Sand" || weathers.main === "Ash" || weathers.main === "Squall" || weathers.main === "Tornado") {
         pic = {
             url: "http://openweathermap.org/img/wn/50d@2x.png"
         }

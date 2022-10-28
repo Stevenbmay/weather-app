@@ -1,9 +1,23 @@
 .main {
     width: 500px;
-    height: 300px;
+    height: 350px;
     margin: auto;
     border-radius: 10px;
     background-color: lightgray;
+    flex: auto;
+    flex-flow: wrap;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.width100 {
+    flex-basis: 100%;
+    margin-bottom: -50px;
+}
+
+.width50 {
+    flex-basis: 50%;
 }
 
 .margin_auto {
