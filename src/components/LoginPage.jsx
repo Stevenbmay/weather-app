@@ -8,7 +8,8 @@ const LoginPage = ({ login }) => {
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1 className="center">Steven's Weather App</h1>
+            <div><h1>Please Login</h1></div>
             <label htmlFor="username">Username: </label>
             <input id="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             <div>

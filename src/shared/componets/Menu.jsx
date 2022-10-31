@@ -5,17 +5,10 @@ import { clearUser } from "../redux/userReducer";
 
 
 const Menu = (user, clearUser) => {
-
     return (
         <nav>
-            {!user && (
-                <NavLink to="/login">Login</NavLink>
-            )}
             {user && (
-                <>
-                    <NavLink to="/weather">Weather</NavLink>
-                    <NavLink to="/login" onClick={clearUser}>Logout</NavLink>
-                </>
+                <NavLink className="logout hover" to="/login" onClick={clearUser}>Logout</NavLink>
             )}
         </nav>
     )
@@ -29,5 +22,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 const mapStateToProps = (state) => ({ user: state.user });
-
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

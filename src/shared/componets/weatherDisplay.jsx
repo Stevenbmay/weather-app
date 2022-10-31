@@ -6,7 +6,6 @@ const WeatherDisplay = ({
     temp_min,
     speed,
     name,
-    mainWeather,
     description,
     url,
     humidity
@@ -15,10 +14,10 @@ const WeatherDisplay = ({
         <div className="main">
             <div className='width100'>{name}</div>
             <div className='temp'>Temp: {temp}°F &nbsp;&nbsp;High: {temp_max}°F &nbsp;&nbsp;Low: {temp_min}°F</div>
-            <div className='width50'>Wind Speed: {speed}Mph</div>
-            <div className='width50'>humidity: {humidity}</div>
-            <h1>{description}</h1>
-            <img src={url} alt="Weather_Img" />
+            <div className='margin width50'>Wind Speed: {speed}Mph</div>
+            <div className='width50'>Humidity: {humidity}</div>
+            <h1 className=' margin'>{description}</h1>
+            <img className='img' src={url} alt="Weather_Img" />
         </div>
     )
 }

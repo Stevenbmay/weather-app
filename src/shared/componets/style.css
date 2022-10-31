@@ -16,8 +16,9 @@
 }
 
 .width50 {
-    flex-basis: 50%;
+    flex-basis: 48%;
     font-size: 25px;
+
 
 }
 
@@ -30,4 +31,26 @@
 
 .margin_auto {
     margin: auto;
+}
+
+.logout {
+    font-size: 35px;
+    text-align: center;
+    display: block;
+    height: 50px;
+    background-color: rgb(44, 131, 244);
+    text-decoration: none
+}
+
+.hover:hover {
+    background-color: rgb(82, 171, 239);
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+}
+
+.margin {
+    margin-left: 10px;
 }

@@ -40,7 +40,7 @@ export default async function getWeather(location) {
                 url: "http://openweathermap.org/img/wn/04d@2x.png"
             }
         }
-        if (description.description === "overcast clouds") {
+        if (description.description === "broken clouds") {
             pic = {
                 url: "http://openweathermap.org/img/wn/04d@2x.png"
             }
@@ -86,7 +86,7 @@ export default async function getWeather(location) {
             name: v.name,
             speed: Math.round((v.speed * 2.237)),
             mainWeather: v.main,
-            description: v.description,
+            description: v.description.charAt(0).toUpperCase() + v.description.slice(1),
             url: v.url,
             humidity: v.humidity
         }))
