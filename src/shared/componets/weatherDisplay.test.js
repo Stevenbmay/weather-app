@@ -14,22 +14,25 @@ const dummyWeather = {
     humidity: "50"
 }
 
-const weatherRender = (renderOptions = {}) => {
+const weatherRender = () => {
     return render(
         <WeatherDisplay
             {...dummyWeather}
         />
-        , renderOptions
     )
 }
 
 describe("weather Display", () => {
-    describe("rendering", () => {
-        it("should render with temp", () => {
-            const { queryByText } = weatherRender()
-            const temp = queryByText(dummyWeather.temp)
-            expect(temp).toBeTruthy();
-        })
+    it("should render with temp", () => {
+        const { baseElement } = weatherRender()
+        const img = baseElement.querySelector("img")
+        expect(img).toBeTruthy();
+        expect(img.src).toBe(dummyWeather.url);
+    })
+    it("should render with temp", () => {
+        const { queryByText } = weatherRender()
+        const name = queryByText(dummyWeather.name)
+        expect(name).toBeTruthy();
     })
 })
 

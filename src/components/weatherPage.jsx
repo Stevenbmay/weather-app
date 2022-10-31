@@ -79,7 +79,6 @@ const WeatherPage = ({ weatherResults, setWeatherResults }) => {
                     <option value="WY">Wyoming</option>
                 </select>
 
-
                 <button onClick={() => {
                     if (city) { setURL(`&q=${city},${state},US`); }
                 }}>Search</button>
@@ -95,14 +94,13 @@ const WeatherPage = ({ weatherResults, setWeatherResults }) => {
             </div>
         </div>
     )
-
 }
+
 const mapDispatchToProps = (dispatch) => ({
     setWeatherResults: (results) => dispatch(setLocation(results)),
 });
 
 const mapStateToProps = (state) => ({
-
     weatherResults: state.location,
 });
 
