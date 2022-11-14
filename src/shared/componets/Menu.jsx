@@ -1,25 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom"
-import { clearUser } from "../redux/userReducer";
+import { useUserContext } from "../context/UserContext";
 
 
-const Menu = (user, clearUser) => {
+
+const Menu = () => {
+    const { user, clearUser } = useUserContext();
     return (
         <nav>
             {user && (
-                <NavLink className="logout hover" to="/login" onClick={clearUser}>Logout</NavLink>
+                <NavLink className="logout hover" to="/login" onClick={() => {
+                    clearUser();
+                }}>Logout</NavLink>
             )}
         </nav>
     )
 }
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        clearUser: () => {
-            dispatch(clearUser());
-        },
-    };
-};
-const mapStateToProps = (state) => ({ user: state.user });
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default Menu

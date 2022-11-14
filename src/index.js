@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
+import StateProvider from "./shared/context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import store from './shared/redux/store';
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,11 +19,11 @@ const queryClient = new QueryClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <StateProvider>
         <App />
-      </QueryClientProvider>
-    </Provider>
+      </StateProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

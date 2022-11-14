@@ -1,21 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react"
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import WeatherDisplay from "../shared/componets/weatherDisplay";
 import getWeather from "../shared/functions/getWeather";
 import { setLocation } from "../shared/redux/locationReducer";
 import ReactLoding from "react-loading"
 import './style.css'
+import { useLocationContext } from "../shared/context/LocationContext";
 
-const WeatherPage = ({ weatherResults, setWeatherResults }) => {
+const WeatherPage = () => {
     const [city, setCity] = useState("");
     const [URL, setURL] = useState(null);
     const [state, setState] = useState("")
+    const { location, setLocation } = useLocationContext()
     const { error, isFetching } = useQuery(["getWeather", URL], () => getWeather(URL), {
-        onSuccess: (data) => setWeatherResults(data),
+        onSuccess: (data) => {
+            setLocation(data)
+        },
         enabled: !!URL,
     });
-
     return (
         <div>
             <div className="center">
@@ -87,7 +90,7 @@ const WeatherPage = ({ weatherResults, setWeatherResults }) => {
             <div>
                 {isFetching && <ReactLoding className="loading" type="spin" color="gery" height={100} width={50} />}
                 {error && "Error, Somthing Went Wrong. Make sure you typed the city name in right and selected the right state"}
-                {!error && !isFetching && weatherResults.map((v) => <WeatherDisplay
+                {!error && !isFetching && location.map((v) => <WeatherDisplay
                     key={v.id}
                     {...v}
                 />)}
@@ -96,12 +99,4 @@ const WeatherPage = ({ weatherResults, setWeatherResults }) => {
     )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    setWeatherResults: (results) => dispatch(setLocation(results)),
-});
-
-const mapStateToProps = (state) => ({
-    weatherResults: state.location,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherPage);
+export default WeatherPage;

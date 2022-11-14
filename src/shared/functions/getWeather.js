@@ -11,9 +11,6 @@ export default async function getWeather(location) {
     const weather = response.data.weather
     const name = response.data.name
     console.log(response.data)
-
-
-
     const main = response.data.main
     const wind = response.data.wind
     const weathers = response.data.weather.find(v => v.main)
@@ -21,10 +18,11 @@ export default async function getWeather(location) {
     const data = {
         name: name
     }
-
     let pic
 
     if (weathers.main === "Clouds") {
+
+
         if (description.description === "few clouds") {
             pic = {
                 url: "http://openweathermap.org/img/wn/02d@2x.png"

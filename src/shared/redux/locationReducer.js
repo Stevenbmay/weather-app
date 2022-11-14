@@ -1,13 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+export const SET_LOCATION = "Set Favorites";
+export const INITIAL_LOCATION_STATE = [];
 
 
-export const locationSlice = createSlice({
-    name: "location",
-    initialState: [],
-    reducers: {
-        setLocation: (state, action) => action.payload,
+export function locationReducer(state, action) {
+    switch (action.type) {
+        case SET_LOCATION:
+            console.log(action.payload);
+            return action.payload
+
+        default:
+            return state;
     }
-})
-
-export const { setLocation } = locationSlice.actions;
-export default locationSlice.reducer;
+}
